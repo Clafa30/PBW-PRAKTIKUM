@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tabel Penjualan</title>
+  <style>
+    html, body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #cfcbcb;
+    }
+
+    .table-con {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgb(255, 255, 255);
+        width: 40%;
+        box-shadow: -5px -5px 10px 2px rgb(79, 79, 79);
+        transition: transform 0.3s;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 90%;
+      margin: 20px 0;
+    }
+
+    .table-con:hover {
+        background-color: rgb(249, 249, 249);
+        transform: scale(1.045);
+    }
+
+    th, td {
+      border: 1px solid #333;
+      padding: 8px;
+      text-align: center;
+    }
+
+    thead {
+      background-color: rgb(0, 43, 142) ;
+      color: white;
+    }
+
+    tfoot {
+      background-color: #061f92;
+      color: white;
+      font-weight: bold;
+    }
+
+    .form-con {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgb(255, 255, 255);
+        width: 40%;
+        margin-bottom: 25px;
+        box-shadow: -5px -5px 10px 2px rgb(92, 92, 92);
+    }
+
+    .form-grup {
+        margin-top: 0.5rem;
+        font-weight: bold;
+    }
+
+    .form-con form {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .submit-btn {
+        margin: 1rem;
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .submit-btn button {
+        width: 90%;
+        background-color: blue;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .submit-btn button:hover {
+        background-color: black;
+        transform: scale(1.075);
+    }
+
+    .submit-btn button:active {
+        transform: scale(1.05);
+        background-color: grey;
+    }
+
+    .form-grup {
+        width: 90%;
+    }
+
+    .form-grup input{
+        width: 100%;
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 30px;
+    }
+
+  </style>
+</head>
+<body>
+<div class="form-con">
+    <h1>Form Produk</h1> 
+    <form action="" method="POST">
+      <div class="form-grup">
+        <label for="produk">Nama Produk</label><br />
+        <input type="text" name="produk" required />
+      </div>
+      
+      <div class="form-grup">
+        <label for="jumlah">Jumlah</label><br />
+        <input type="number" name="jumlah" required />
+      </div>
+      
+      <div class="form-grup">
+        <label for="harga">Harga</label><br />
+        <input type="number" name="harga" required />
+      </div>
+      
+      <div class="submit-btn">
+        <button type="submit">Simpan</button>
+      </div>
+    </form>
+</div>
+
+<div class="table-con">
+  <h1>Data Penjualan Bulanan</h1>
+  <table>
+    <thead>
+        <tr>
+          <th rowspan="2">No</th>
+          <th rowspan="2">Produk</th>
+          <th colspan="2">Penjualan</th>
+        </tr>
+        <tr>
+          <th>Jumlah</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Produk A</td>
+        <td>10</td>
+        <td>500.000</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Produk B</td>
+        <td>5</td>
+        <td>375.000</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Produk C</td>
+        <td>8</td>
+        <td>480.000</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">Total Semua Penjualan</td>
+        <td>23</td>
+        <td>1.355.000</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+    <footer class="footer">Created by Rafaisya Dwi Adrianto, 2025.</footer>
+</body>
+</html>
