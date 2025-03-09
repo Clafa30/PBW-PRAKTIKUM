@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabel Penjualan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-300 h-screen flex flex-col items-center justify-center">
+  <div class="bg-white shadow-md w-3/5 mb-8 p-6 flex flex-col items-center">
+    <h1 class="text-xl font-bold mb-4">Form Produk</h1>
+    <form class="w-full">
+      <div class="mb-4">
+        <label for="produk" class="block font-semibold mb-2">Nama Produk</label>
+        <input type="text" id="produk" name="produk" required class="w-full border border-gray-400 p-2">
+      </div>
+      <div class="mb-4">
+        <label for="jumlah" class="block font-semibold mb-2">Jumlah</label>
+        <input type="number" id="jumlah" name="jumlah" required class="w-full border border-gray-400 p-2">
+      </div>
+      <div class="mb-4">
+        <label for="harga" class="block font-semibold mb-2">Harga</label>
+        <input type="number" id="harga" name="harga" required class="w-full border border-gray-400 p-2">
+      </div>
+      <div class="flex justify-center">
+        <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-black transition-transform transform hover:scale-105 active:bg-gray-600">Simpan</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="bg-white shadow-md w-3/5 p-6 flex flex-col items-center">
+    <h1 class="text-xl font-bold mb-4">Data Penjualan Bulanan</h1>
+    <table class="table-auto w-full border-collapse">
+      <thead class="bg-blue-900 text-white">
+        <tr>
+          <th class="border px-4 py-2" rowspan="2">No</th>
+          <th class="border px-4 py-2" rowspan="2">Produk</th>
+          <th class="border px-4 py-2" colspan="2">Penjualan</th>
+        </tr>
+        <tr>
+          <th class="border px-4 py-2">Jumlah</th>
+          <th class="border px-4 py-2">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border px-4 py-2">1</td>
+          <td class="border px-4 py-2">Produk A</td>
+          <td class="border px-4 py-2">10</td>
+          <td class="border px-4 py-2">500.000</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">2</td>
+          <td class="border px-4 py-2">Produk B</td>
+          <td class="border px-4 py-2">5</td>
+          <td class="border px-4 py-2">375.000</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">3</td>
+          <td class="border px-4 py-2">Produk C</td>
+          <td class="border px-4 py-2">8</td>
+          <td class="border px-4 py-2">480.000</td>
+        </tr>
+      </tbody>
+      <tfoot class="bg-blue-900 text-white font-bold">
+        <tr>
+          <td class="border px-4 py-2" colspan="2">Total Semua Penjualan</td>
+          <td class="border px-4 py-2">23</td>
+          <td class="border px-4 py-2">1.355.000</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <footer class="text-center mt-6">Created by Rafaisya Dwi Adrianto, 2025.</footer>
+</body>
+</html>
