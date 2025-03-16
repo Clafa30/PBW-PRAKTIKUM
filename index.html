@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi, I'm Rafaisya!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        body {
+            background: linear-gradient(135deg, #1e3b8a, #6b7280, #9233ea);
+            background-attachment: fixed;
+        }
+        .section-home {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .section-projects {
+            background: rgba(144, 238, 144, 0.2); 
+            backdrop-filter: blur(9px);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 2rem; 
+        }
+        .section-certification {
+            background: rgba(173, 216, 230, 0.2);
+            backdrop-filter: blur(8px);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 2rem; 
+        }
+        .section-rewarding {
+            background: rgba(221, 160, 221, 0.2);
+            backdrop-filter: blur(12px);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 2rem;
+        }
+        .biodata {
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .section-skills {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            border-radius: 1rem;
+            padding: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            bottom: 65px;
+            margin: auto;
+            width: 80%;
+            max-width: 500px;
+        }
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 120px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        #projects{
+            margin-top: 20rem;
+        }
+        #certification{
+            margin-top: 5rem;
+        }
+        #rewarding{
+            margin-top: 5rem;
+            margin-bottom: 5rem;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 text-white p-4 fixed w-full top-0 shadow-md z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold text-white-900">Rafaisya.</div>
+            <div class="space-x-6">
+                <a href="#home" class="hover:text-blue-200 transition duration-300 ease-in-out">Home</a>
+                <a href="#projects" class="hover:text-blue-200 transition duration-300 ease-in-out">Projects</a>
+                <a href="#certification" class="hover:text-blue-200 transition duration-300 ease-in-out">Certification</a>
+                <a href="#rewarding" class="hover:text-blue-200 transition duration-300 ease-in-out">Rewarding</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Home -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20">
+        <div class="text-center animate-fade-in section-home">
+            <img src="Rafa.jpg" alt="Rafaisya Photo" class="w-48 h-48 rounded-full mx-auto mb-4 shadow-lg border-2 border-blue-600">
+            <h1 class="text-4xl font-bold text-gray-100 mb-2">Rafaisya Dwi Adrianto</h1>
+            <div class="biodata text-gray-100 text-lg">
+                Hi!, Aku adalah seorang mahasiswa ilmu komputer yang saat ini aktif di jurusan informatika tahun ke-2.<br>
+                Aku memiliki keahlian di bidang web development, infrastruktur jaringan, dan juga design.
+            </div>
+            <div class="section-skills animate-fade-in">
+                <h2 class="text-xl font-semibold text-gray-100 mb-2">Skills</h2>
+                <ul class="text-gray-100 text-left list-disc list-inside">
+                    <li>Web Development (HTML, CSS, JavaScript)</li>
+                    <li>Infrastruktur Jaringan (Mikrotik, Cisco)</li>
+                    <li>Design (UI/UX, Figma)</li>
+                    <li>Java</li>
+                    <li>Python</li>
+                    <li>PHP</li>
+                    <li>SQL</li>
+                </ul>
+            </div>
+            <button class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-800 transition duration-300 ease-in-out transform hover:scale-105">Contact Me</button>
+            <div class="mt-6 flex justify-center space-x-6">
+                <div class="tooltip">
+                    <a href="https://www.instagram.com/raidadr_?igsh=ZzkxYjdlZTAzejl4" target="_blank" class="text-gray-100 hover:text-blue-400 transition duration-300">
+                        <i class="fab fa-instagram fa-2x"></i>
+                    </a>
+                    <span class="tooltip-text">Follow me on Instagram</span>
+                </div>
+                <div class="tooltip">
+                    <a href="https://github.com/clafa30" target="_blank" class="text-gray-100 hover:text-blue-400 transition duration-300">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                    <span class="tooltip-text">Check my projects on GitHub</span>
+                </div>
+                <div class="tooltip">
+                    <a href="https://www.linkedin.com/in/rafaisya-dwi-adrianto?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-gray-100 hover:text-blue-400 transition duration-300">
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a>
+                    <span class="tooltip-text">Connect with me on LinkedIn</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projects -->
+    <section id="projects" class="flex items-center justify-center">
+        <div class="text-center animate-fade-in section-projects">
+            <h2 class="text-3xl font-bold text-blue-50 mb-6">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <h3 class="text-xl font-semibold">Portfolio Website</h3>
+                    <p class="text-gray-600">A personal portfolio built with HTML, CSS, and Tailwind CSS. (2023)</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <h3 class="text-xl font-semibold">Network Setup & Design</h3>
+                    <p class="text-gray-600">Design and Configured a small office network using Cisco Packet Tracer and Mikrotik routers. (2023)</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <h3 class="text-xl font-semibold">UI Design for App</h3>
+                    <p class="text-gray-600">Designed a mobile app interface using Figma. (2024)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Certification -->
+    <section id="certification" class="flex items-center justify-center">
+        <div class="text-center animate-fade-in section-certification">
+            <h2 class="text-3xl font-bold text-blue-50 mb-6">Certifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
+                <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <h3 class="text-xl font-semibold">Web Development</h3>
+                    <p class="text-gray-600">Certified by Study Club, 2023</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <h3 class="text-xl font-semibold">Mikrotik Certification</h3>
+                    <p class="text-gray-600">Certified by Refftech Cipta Dinamika</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <h3 class="text-xl font-semibold">Data Science</h3>
+                    <p class="text-gray-600">Certified by Coursera, 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Rewarding -->
+    <section id="rewarding" class="flex items-center justify-center">
+        <div class="text-center animate-fade-in section-rewarding">
+            <h2 class="text-3xl font-bold text-blue-50 mb-6">Rewarding</h2>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
+                <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <h3 class="text-xl font-semibold">Compfair Logo Design</h3>
+                    <p class="text-gray-600">BEM Unsika, 2023</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <h3 class="text-xl font-semibold">Taekwondo Liga Pelajar</h3>
+                    <p class="text-gray-600">Pengcab Taekwondo, 2022</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white text-center p-4 mt-2rem">
+        <p>© 2025 Rafaisya. All rights reserved.</p>
+    </footer>
