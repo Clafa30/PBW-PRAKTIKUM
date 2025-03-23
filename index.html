@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitur Matematika</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #5c8ce4, #e04040);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            min-height: 400px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        select, input, button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+        button {
+            background: #b1252c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #ff4757;
+        }
+        #result {
+            margin-top: auto;
+            padding: 15px;
+            background: #ffffff;
+            border-radius: 5px;
+            color: #4b4a4a;
+            text-align: left;
+            border: 1px solid #474747;
+            min-height: 100px;
+            overflow-y: auto;
+        }
+        .hidden {
+            display: none;
+        }
+        .fib-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .fib-item {
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            text-align: center;
+            min-width: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculator & Deret Fibonacci</h1>
+        
+        <select id="feature" onchange="toggleInputs()">
+            <option value="">-- Pilih Fitur --</option>
+            <option value="fibonacci">Deret Fibonacci</option>
+            <option value="calculator">Kalkulator</option>
+        </select>
+
+        <!-- Input untuk Fibonacci -->
+        <div id="fibonacci-input" class="hidden">
+            <input type="number" id="fib-count" placeholder="Jumlah angka Fibonacci" min="1">
+        </div>
+
+        <!-- Input untuk Kalkulator -->
+        <div id="calc-input" class="hidden">
+            <input type="number" id="num1" placeholder="Angka pertama">
+            <input type="number" id="num2" placeholder="Angka kedua">
+            <select id="operator">
+                <option value="+">Tambah (+)</option>
+                <option value="-">Kurang (-)</option>
+                <option value="*">Kali (x)</option>
+                <option value="/">bagi (/)</option>
+                <option value="%">Modulus (%)</option>
+            </select>
+        </div>
+
+        <button onclick="executeFeature()">Jalankan</button>
+        <div id="result"></div>
+        <p style="margin: auto; margin-top: 25px; padding-top: 1px; font-family:'Times New Roman', Times, serif;">Dibuat Oleh Rafaisya Dwi Adrianto. 2025</p>
+    </div>
+
+    <script>
+        // Fungsi untuk toggle input berdasarkan fitur
+        function toggleInputs() {
+            const feature = document.getElementById('feature').value;
+            document.getElementById('fibonacci-input').classList.add('hidden');
+            document.getElementById('calc-input').classList.add('hidden');
+            document.getElementById('result').innerHTML = '';
+
+            switch (feature) {
+                case 'fibonacci':
+                    document.getElementById('fibonacci-input').classList.remove('hidden');
+                    break;
+                case 'calculator':
+                    document.getElementById('calc-input').classList.remove('hidden');
+                    break;
+            }
+        }
+
+        // Fungsi Fibonacci
+        const fibonacci = (n) => {
+            let fib = [0, 1];
+            for (let i = 2; i < n; i++) {
+                fib[i] = fib[i - 1] + fib[i - 2];
+            }
+            return fib;
+        };
+
+        // Fungsi Kalkulator dengan arrow function dan spread operator
+        const calculate = (num1, num2, operator) => {
+            const numbers = [num1, num2];
+            const operations = {
+                '+': () => numbers[0] + numbers[1],
+                '-': () => numbers[0] - numbers[1],
+                '*': () => numbers[0] * numbers[1],
+                '/': () => num2 !== 0 ? numbers[0] / numbers[1] : 'Tidak bisa dibagi 0',
+                '%': () => numbers[0] % numbers[1]
+            };
+            return operations[operator]();
+        };
+
+        // Fungsi utama untuk mengeksekusi fitur
+        const executeFeature = () => {
+            const feature = document.getElementById('feature').value;
+            const resultDiv = document.getElementById('result');
+
+            switch (feature) {
+                case 'fibonacci':
+                    const count = parseInt(document.getElementById('fib-count').value);
+                    if (isNaN(count) || count < 1) {
+                        resultDiv.innerText = 'Masukkan jumlah angka yang valid!';
+                    } else {
+                        const fibResult = fibonacci(count);
+                        const maxValue = Math.max(...fibResult);
+                        let fibHTML = `<strong>Deret Fibonacci (${count} angka):</strong><br><div class="fib-list">`;
+                        fibResult.forEach(num => {
+                            const lightness = 90 - (num / maxValue) * 70; 
+                            const bgColor = `hsl(220, 70%, ${lightness}%)`; 
+                            fibHTML += `<span class="fib-item" style="background-color: ${bgColor}">${num}</span>`;
+                        });
+                        fibHTML += '</div>';
+                        resultDiv.innerHTML = fibHTML;
+                    }
+                    break;
+
+                case 'calculator':
+                    const num1 = parseFloat(document.getElementById('num1').value);
+                    const num2 = parseFloat(document.getElementById('num2').value);
+                    const operator = document.getElementById('operator').value;
+
+                    if (isNaN(num1) || isNaN(num2)) {
+                        resultDiv.innerText = 'Masukkan angka yang valid!';
+                    } else {
+                        const calcResult = calculate(num1, num2, operator);
+                        resultDiv.innerText = `Hasil: ${num1} ${operator} ${num2} = ${calcResult}`;
+                    }
+                    break;
+
+                default:
+                    resultDiv.innerText = 'Pilih fitur terlebih dahulu!';
+            }
+        };
+    </script>
+</body>
+</html>
